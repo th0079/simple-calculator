@@ -39,3 +39,9 @@ test("곱하기 버튼이 두 입력값을 곱해서 display에 표시한다", (
      document.querySelector('[data-testid="btn-multiply"]').click();
      expect(document.querySelector('[data-testid="display"]').textContent).toBe("18");
 });
+test("0으로 나누면 에러 메시지를 표시한다", () => {
+  document.getElementById("inputA").value = "5";
+  document.getElementById("inputB").value = "0";
+  document.querySelector('[data-testid="btn-divide"]').click();
+  expect(document.querySelector('[data-testid="display"]').textContent).toMatch(/에러/);
+});
